@@ -1,1 +1,2 @@
-The names are pretty much self-explanatory
+The names are pretty much self-explanatory. The first folder contains the model as specified in the slides and the asssignment. The second folder has the same structure, with only one twist: now unemployed workers lose UI not only when they refuse a suitable job offer, but also when they remain unemployed for more than Emax periods. 
+We show even a very generous Emax (52, or 2 yrs) solves the issue.
