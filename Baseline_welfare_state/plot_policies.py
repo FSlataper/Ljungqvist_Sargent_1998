@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use("Agg")
+
 def _default_tau_list():
     # If you computed tau_star, center the sweep around it; else use a default set.
     if 'tau_star' in globals() and isinstance(tau_star, (int, float)):
@@ -25,11 +28,13 @@ def plot_vfi_vs_tau(
       9) U_E(h, i_fixed)  <-- NEW: unemployed analogue of (8), fixed class across τ
 
     Args:
-      tau_list: list of τ values to sweep. If None, uses a default around tau_star (if present).
-      classes_to_show: iterable of class indices to plot for U_E and wbar.
+      tau_list: list of τ values to sweep
+      classes_to_show: iterable of class indices to plot for U_E and wbar
       ue_slice_class_idx: single class index for chart (9). If None, uses the median class.
-      maxit: max iterations for the VFI solver.
+      maxit: max iterations for the VFI solver
     """
+
+    
     if tau_list is None:
         tau_list = _default_tau_list()
     if ue_slice_class_idx is None:
