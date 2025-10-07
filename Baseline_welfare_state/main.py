@@ -9,6 +9,8 @@ import faulthandler, sys
 faulthandler.dump_traceback_later(600, repeat=True, file=sys.stderr)
 
 
+if __name__ == "__main__":
+    main()
 
 plot_vfi_vs_tau(
     tau_list=None,
@@ -22,7 +24,7 @@ N    = 20_000   # number of workers
 per_year = 26   # 26 periods = 1 year
 
 # Find equilibrium tau
-tau_star, obj = equilibrium_tax_UIclasses()
+tau_star, obj = equilibrium_tax_UIclasses( verbose=True, every=10)
 U_E, U_N, Wv, sE, sN, wbar, wbar_inel = obj
 
 # Simulate once with tracking

@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Baseline (module)",
+      "type": "python",
+      "request": "launch",
+      "module": "Baseline_welfare_state.main",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [],
+      "env": { "PYTHONUNBUFFERED": "1" }
+    }
+  ]
+}
