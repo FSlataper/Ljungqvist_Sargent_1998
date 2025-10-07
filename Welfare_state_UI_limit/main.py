@@ -4,6 +4,9 @@ import simulate.py
 import equilibrium.py
 
 
+import faulthandler, sys
+faulthandler.dump_traceback_later(600, repeat=True, file=sys.stderr)
+
 
 T    = 2000      # total periods (longer horizon for nicer plots)
 burn = 100      # burn-in
@@ -47,7 +50,7 @@ ax2.plot(stats['avg_h'], color="orange", label="Avg skill (h)")
 ax2.set_ylabel("Average human capital")
 ax2.legend(loc="upper right")
 plt.title("Simulation paths (equilibrium τ)")
-plt.show()
+plt.savefig("figs/Equilibrium_path.png"); plt.close()
 
 # Yearly averages (post-burn)
 years = np.arange(1, len(stats['unrate_yearly'])+1)
@@ -57,7 +60,8 @@ plt.plot(years, stats['avg_h_yearly'], marker='s', label="Avg skill (h)")
 plt.xlabel("Year (post-burn)")
 plt.title("Yearly averages (post-burn)")
 plt.legend()
-plt.show()
+plt.savefig("figs/Yearly averages.png"); plt.close()
+
 
 print(f"τ* ≈ {tau_star:.4f}")
 print(f"Avg unemployment spell length (post-burn): {stats['avg_unemp_length_postburn']:.2f} periods")
@@ -70,7 +74,7 @@ plt.xlabel("Unemployment spell length (periods)")
 plt.ylabel("Count")
 plt.title("Distribution of unemployment spell lengths (post-burn)")
 plt.tight_layout()
-plt.show()
+plt.savefig("figs/Distribution of unemployment spell lengths.png"); plt.close()
 
 # 2) Yearly average spell length (post-burn)
 years = range(1, 1 + len(stats['unemp_length_yearly']))
@@ -80,4 +84,5 @@ plt.xlabel("Year (post-burn)")
 plt.ylabel("Avg unemployment spell length (periods)")
 plt.title("Average unemployment spell length by year (post-burn)")
 plt.tight_layout()
-plt.show()
+plt.savefig("figs/Average unemployment spell length by year.png"); plt.close()
+
