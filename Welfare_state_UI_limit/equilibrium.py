@@ -14,7 +14,7 @@ def equilibrium_tax_UIcap(
     per_year: int = 26,
 ):
     """
-    Find τ* such that (post-burn) tax revenue = UI outlays under a per-spell cap of EMAX periods.
+    Find τ* such that (post-burn) tax revenue = UI outlays under the new policy
 
     """
     tau_L, tau_H = 0.0, 1.0
