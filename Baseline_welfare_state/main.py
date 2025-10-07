@@ -4,13 +4,34 @@ import plot_policies.py
 import simulate.py
 import equilibrium.py
 
+import os, sys, faulthandler, traceback, time
+faulthandler.enable()                    # show tracebacks if it wedges
+sys.stdout.reconfigure(line_buffering=True)  # flush prints immediately
+print("▶ starting main.py", flush=True)
+print("   CWD:", os.getcwd(), flush=True)
 
-import faulthandler, sys
-faulthandler.dump_traceback_later(600, repeat=True, file=sys.stderr)
+# Non-GUI plotting so scripts don't block
+import matplotlib
+matplotlib.use("Agg")
 
+def main():
+    print("▶ entering main()", flush=True)
+    # quick smoke config
+    T, N, burn = 60, 2000, 20
+    print(f"   Config: T={T} N={N} burn={burn}", flush=True)
+
+    # TODO: call your equilibrium & simulate functions here
+    # print intermediate results so you know it's alive
+    # e.g., print("…solving VFI"), print("…simulating"), etc.
 
 if __name__ == "__main__":
-    main()
+    try:
+        t0 = time.perf_counter()
+        main()
+        print(f"✔ done in {time.perf_counter()-t0:.2f}s", flush=True)
+    except Exception:
+        print("✖ crashed with:", flush=True)
+        traceback.print_exc()
 
 plot_vfi_vs_tau(
     tau_list=None,
