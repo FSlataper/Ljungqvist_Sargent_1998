@@ -5,6 +5,8 @@ import simulate.py
 import equilibrium.py
 
 
+import faulthandler, sys
+faulthandler.dump_traceback_later(600, repeat=True, file=sys.stderr)
 
 
 

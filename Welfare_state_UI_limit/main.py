@@ -1,6 +1,5 @@
-from ../Baseline_welfare_state import params_et_utils.py
+import params_et_utils.py
 import VFI.py
-import plot_policies.py
 import simulate.py
 import equilibrium.py
 
